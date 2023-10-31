@@ -1,4 +1,4 @@
-![readome-image](https://github.com/asdf03/miniBoard-kotlin-vue/assets/120952058/4d08f466-39b2-4848-9027-95627ce4912e)
+![readome-image](https://github.com/asdf03/miniBoard-kotlin-vue/assets/120952058/137900a0-779e-4857-a9e3-c5594006205f)
 
 # ミニ掲示板
 
