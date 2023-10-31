@@ -1,4 +1,4 @@
-https://github.com/asdf03/miniBoard-kotlin-vue/raw/main/images/readme-image.jpg
+https://github.com/asdf03/miniBoard-kotlin-vue/blob/main/images/readome-image.jpg
 
 # ミニ掲示板
 
