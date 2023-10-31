@@ -1,4 +1,4 @@
-https://github.com/ユーザー名/リポジトリ名/raw/main/images/readme-image.jpg
+https://github.com/asdf03/miniBoard-kotlin-vue/raw/main/images/readme-image.jpg
 
 # ミニ掲示板
 
