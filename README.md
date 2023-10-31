@@ -1,3 +1,5 @@
+https://github.com/ユーザー名/リポジトリ名/raw/main/images/readme-image.jpg
+
 # ミニ掲示板
 
 このプロジェクトは、ユーザーがメッセージを投稿できるシンプルな掲示板アプリケーションです。バックエンドにはKotlinを使用し、フロントエンドにはVue.jsを採用しています。
