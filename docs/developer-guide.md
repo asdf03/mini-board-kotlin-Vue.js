@@ -8,16 +8,18 @@
 
 プロジェクトは以下のディレクトリ構造に従っています：
 
-プロジェクトルート
-├── docs
-│ ├── license.md
-│ ├── readme.md
-│ ├── requirements.md
-│ └── developer-guide.md
-├── src
-│ ├── バックエンドのソースファイル
-│ └── フロントエンドのソースファイル
+`
+プロジェクトルート  
+├── docs  
+│ ├── license.md  
+│ ├── readme.md  
+│ ├── requirements.md  
+│ └── developer-guide.md  
+├── src  
+│ ├── バックエンドのソースファイル  
+│ └── フロントエンドのソースファイル  
 └── その他のプロジェクトファイルやディレクトリ
+`
 
 - **`docs`ディレクトリ**: プロジェクトに関するドキュメントを格納する場所です。`license.md`はライセンス情報、`readme.md`はプロジェクトの説明、`requirements.md`は要件定義に関する情報を含みます。`developer-guide.md`は開発者向けのガイドラインです。
 
