@@ -9,15 +9,21 @@
 プロジェクトは以下のディレクトリ構造に従っています：
 
 ```
-プロジェクトルート  
-├── docs  
-│ ├── license.md  
-│ ├── readme.md  
-│ ├── requirements.md  
-│ └── developer-guide.md  
-├── src  
-│ ├── バックエンドのソースファイル  
-│ └── フロントエンドのソースファイル  
+プロジェクトルート
+├── docs
+│   ├── database-design
+│   │   ├── er-diagram.md
+│   │   └── table-definition.md
+│   ├── api-design.md
+│   ├── developer-guide.md
+│   ├── functional-design-document.md
+│   ├── license.md
+│   ├── readome.md
+│   ├── requirements.md
+│   ├── screen-transition-diagram.md
+├── src
+│   ├── バックエンドのソースファイル
+│   └── フロントエンドのソースファイル
 └── その他のプロジェクトファイルやディレクトリ
 ```
 
