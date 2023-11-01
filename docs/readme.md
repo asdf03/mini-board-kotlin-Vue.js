@@ -25,19 +25,23 @@ git clone <リポジトリのURL>
 
 2. バックエンドの設定
 
+```
 cd backend
 // バックエンドの依存関係をインストール
 ./gradlew build
 // アプリケーションを起動
 java -jar build/libs/backend.jar
+```
 
 3. フロントエンドの設定
 
+```
 cd frontend
 // フロントエンドの依存関係をインストール
 npm install
 // アプリケーションを起動
 npm run serve
+```
 
 4. ブラウザでアプリケーションにアクセス: [http://localhost:8080](http://localhost:8080)
 
