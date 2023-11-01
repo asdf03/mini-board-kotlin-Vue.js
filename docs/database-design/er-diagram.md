@@ -1,3 +1,4 @@
+```
 erDiagram
     USER ||--o{ MESSAGE : posts
     USER {
@@ -19,3 +20,4 @@ erDiagram
         datetime timestamp
         string author
     }
+```
