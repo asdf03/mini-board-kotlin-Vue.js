@@ -35,4 +35,4 @@ WebSocketを使用して、メッセージがリアルタイムで更新され�
 
 ## 3. 画面遷移
 
-画面遷移については、別の文書「画面遷移図(screen-transition-diagram.md)」を参照してください。
+画面遷移については、別の文書[screen-transition-diagram.md](screen-transition-diagram.md)を参照してください。
