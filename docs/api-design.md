@@ -93,7 +93,7 @@
 
     ```json
     {
-      "messages": \[
+      "messages": [
         {
           "id": 1,
           "content": "Hello, World!",
@@ -104,7 +104,7 @@
           }
         },
         // 他のメッセージ
-      \],
+      ],
       "total": 100,
       "page": 1,
       "pageSize": 10
