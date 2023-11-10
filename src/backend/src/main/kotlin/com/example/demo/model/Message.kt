@@ -9,7 +9,7 @@ data class Message(
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   val id: Long? = null,
 
-  @Column(nullable = false, columnDefinition = "TEXT")
+  @Column(nullable = false, columnDefinition = "TEXT", length = 500)
   val content: String,
 
   @Column(nullable = false)

@@ -1,6 +1,6 @@
 package com.demo.controller
 
-import com.demo.model.message
+import com.demo.model.Message
 import com.demo.service.MessageService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
