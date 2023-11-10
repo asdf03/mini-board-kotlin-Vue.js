@@ -13,9 +13,12 @@ data class Message(
   val content: String,
 
   @Column(nullable = false)
-  val createdAt: LocalDateTime = LocalDateTime.now(),
+  val timestamp: LocalDateTime = LocalDateTime.now(),
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id", nullable = false)
-  val author: User
+  val user: User
+
+  @OneToMany(mappedBy = "message", cascade = [CascadeType.All], fetch = FetchType.LAZY)
+  val comments: List<Comment> = mutableListOf()
 )

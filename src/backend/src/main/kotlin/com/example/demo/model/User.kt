@@ -16,4 +16,10 @@ data class User(
 
   @Column(nullable = false)
   val password: String,
+
+  @OneToMany(mappedBy = "user", cascade = [CascadeType.All], fetch = FetchType.LAZY)
+  val messages: List<Message> = mutableListOf(),
+
+  @OneToMany(mappedBy = "user", cascade = [CascadeType.All], fetch = FetchType.LAZY)
+  val comments: List<Comment> = mutableListOf(),
 )
