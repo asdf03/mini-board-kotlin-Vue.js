@@ -6,15 +6,16 @@ import javax.presistence.*
 @Entity
 @Table(name = "messages")
 data class Message(
-  @Id @GeneratedValue(strategu = GenerationType.IDENTITY)
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   val id: Long? = null,
 
-  @Column(nullable = false)
-  val text: String,
+  @Column(nullable = false, columnDefinition = "TEXT")
+  val content: String,
 
   @Column(nullable = false)
-  val userId: Long,
+  val createdAt: LocalDateTime = LocalDateTime.now(),
 
-  @Column(nullable = false)
-  val createdAt: LocalDateTime = LocalDateTime.now()
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id", nullable = false)
+  val author: User
 )
