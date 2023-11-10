@@ -1,23 +1,29 @@
 ```
 erDiagram
-    USER ||--o{ MESSAGE : posts
+    USER ||--o{ MESSAGE : "posts"
+    USER ||--o{ COMMENT : "writes"
+    MESSAGE ||--o{ COMMENT : "has"
+
     USER {
+        Long id
         string username
         string email
         string password
+        list messages
+        list comments
     }
-    MESSAGE }|--|| COMMENT : has
     MESSAGE {
-        int id
+        Long id
         string content
-        datetime timestamp
-        string author
+        LocalDateTime timestamp
+        USER user
+        list comments
     }
-    COMMENT ||--|{ USER : writes
     COMMENT {
-        int id 
+        Long id
         string content
-        datetime timestamp
-        string author
+        LocalDateTime timestamp
+        USER user
+        MESSAGE message
     }
 ```
