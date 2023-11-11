@@ -30,6 +30,16 @@ class CommentService(private val commentRepository: CommentRepository) {
   }
 
   @Transactional
+  fun updateComment(id: Long, updatedComment: Comment): Optional<Comment> {
+    return CommentRepository.findById(id).map { existingComment -> 
+      val updated = existingComment.copy(
+        text = updateComment.text
+      )
+      commentRepository.save(updated)
+    }
+  }
+
+  @Transactional
   fun deleteComment(id: Long) {
     commentRepository.deleteById(id)
   }
