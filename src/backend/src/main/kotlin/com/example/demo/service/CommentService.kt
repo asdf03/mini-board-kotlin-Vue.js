@@ -5,11 +5,11 @@ import com.demo.repository.CommentRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
-@service
+@Service
 class CommentService(private val commentRepository: CommentRepository) {
   
   @Transactional
-  saveComment(comment: Comment): Comment {
+  fun saveComment(comment: Comment): Comment {
     return commentRepository.save(comment)
   }
 
@@ -21,11 +21,11 @@ class CommentService(private val commentRepository: CommentRepository) {
     return commentRepository.findById(id).orElse(null)
   }
 
-  fun findAllCommentByMessageId(messageId: Long): List<Commnet> {
+  fun findAllCommentByMessageId(messageId: Long): List<Comment> {
     return commentRepository.findAllByMessageId(messageId)
   }
 
-  fun findAllCommentByUserId(userId: Long): List<Commnet> {
+  fun findAllCommentByUserId(userId: Long): List<Comment> {
     return commentRepository.findAllByUserId(userId)
   }
 }
