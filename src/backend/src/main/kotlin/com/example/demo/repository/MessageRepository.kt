@@ -5,6 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.repository
 
 @Repository
-interface MessageRepository : JpaRepository<Message, Long> {
-  // カスタムメソッドをここに記述
-}
+interface MessageRepository : JpaRepository<Message, Long> {}
