@@ -7,6 +7,12 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class MessageService(private val messageRepository: MessageRepository) {
+
+  @Transactional
+  fun saveMessage(message: Message): Message {
+    return messageRepository.save(message)
+  }
+
   fun findAllMessages(): List<Message> {
     return messageRepository.findAll()
   }
@@ -15,9 +21,8 @@ class MessageService(private val messageRepository: MessageRepository) {
     return messageRepository.findById(id).orElse(null)
   }
 
-  @Transactional
-  fun saveMessage(message: Message): Message {
-    return messageRepository.save(message)
+  fun findAllMessagesByUserId(userId: Long): List<message> {
+    return messageRepository.findAllByUserId(userId)
   }
 
   @Transactional

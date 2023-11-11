@@ -6,5 +6,5 @@ import org.springframework.stereotype.repository
 
 @Repository
 interface MessageRepository : JpaRepository<Message, Long> {
-  fun findByUserId(userId: Long): List<Message>
+  fun findAllByUserId(userId: Long): List<Message>
 }
