@@ -21,7 +21,7 @@ class MessageService(private val messageRepository: MessageRepository) {
     return messageRepository.findById(id).orElse(null)
   }
 
-  fun findAllMessagesByUserId(userId: Long): List<message> {
+  fun findAllMessagesByUserId(userId: Long): List<Message> {
     return messageRepository.findAllByUserId(userId)
   }
 
