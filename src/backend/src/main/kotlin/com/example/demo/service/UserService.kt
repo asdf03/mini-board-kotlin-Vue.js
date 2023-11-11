@@ -1,20 +1,20 @@
 package com.demo.service
 
 import com.demo.model.User
-import com.demo.repository.CommentRepository
+import com.demo.repository.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-fun UserService(private val userRepository: UserRepository) {
+class UserService(private val userRepository: UserRepository) {
 
   @Transactional
   fun createUser(user: User): User {
-    return UserRepository.save(user)
+    return userRepository.save(user)
   }
 
   fun findAllUsers(): List<User> {
-    return UserRepository.findAll()
+    return userRepository.findAll()
   }
 
   fun findUserById(id: Long): User? {
