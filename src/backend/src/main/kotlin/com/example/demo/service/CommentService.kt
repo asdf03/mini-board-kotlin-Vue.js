@@ -28,4 +28,9 @@ class CommentService(private val commentRepository: CommentRepository) {
   fun findAllCommentByUserId(userId: Long): List<Comment> {
     return commentRepository.findAllByUserId(userId)
   }
+
+  @Transactional
+  fun deleteComment(id: Long) {
+    commentRepository.deleteById(id)
+  }
 }
