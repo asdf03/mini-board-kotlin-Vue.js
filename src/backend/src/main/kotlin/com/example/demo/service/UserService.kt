@@ -2,14 +2,19 @@ package com.demo.service
 
 import com.demo.model.User
 import com.demo.repository.UserRepository
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class UserService(private val userRepository: UserRepository) {
+class UserService(
+  private val userRepository: UserRepository
+  private val passwordEncoder: PasswordEncoder
+) {
 
   @Transactional
   fun createUser(user: User): User {
+    user.password = passwordEncoder.encode(user.password)
     return userRepository.save(user)
   }
 
@@ -27,7 +32,7 @@ class UserService(private val userRepository: UserRepository) {
       val updated = existingUser.copy(
         username = updatedUser.username,
         email = updatedUser.email,
-        password = updatedUser.password
+        password = passwordEncoder.encode
       )
       userRepository.save(updated)
     }.orElse(null)
@@ -36,5 +41,13 @@ class UserService(private val userRepository: UserRepository) {
   @Transactional
   fun deleteUser(id: Long) {
     userRepository.deleteById(id)
+  }
+
+  fun authenticate(email: String, password: String): User? {
+    val user = userRepository.findByEmail(email)
+    if (user != null && passwordEncoder.matches(password, user.password)) {
+      return user
+    }
+    return null
   }
 }

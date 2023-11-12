@@ -2,6 +2,7 @@ package com.demo.controller
 
 import com.demo.model.User
 import com.demo.service.UserService
+import com.demo.controller.dto.LoginRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -37,5 +38,15 @@ class UserController(private val userService: UserService) {
   fun deleteUser(@PathVariable id: Long): ResponseEntity<Void> {
     userService.deleteUser(id)
     return ResponseEntity.ok().build()
+  }
+
+  @PostMapping("/login")
+  fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<User> {
+    val user = userService.authenticate(loginRequest.email, loginRequest.password)
+    return if (user != null) {
+      ResponseEntity.ok(user)
+    } else {
+      ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+    }
   }
 }
