@@ -3,12 +3,16 @@ package com.demo.controller
 import com.demo.model.User
 import com.demo.service.UserService
 import com.demo.controller.dto.LoginRequest
+import com.demo.security.JwtUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/users")
-class UserController(private val userService: UserService) {
+class UserController(
+  private val userService: UserService,
+  private val jwtUtil: JwtUtil
+) {
 
   @PostMapping
   fun createUser(@RequestBody user: User): ResponseEntity<User> {
@@ -41,10 +45,11 @@ class UserController(private val userService: UserService) {
   }
 
   @PostMapping("/login")
-  fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<User> {
+  fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<String> {
     val user = userService.authenticate(loginRequest.email, loginRequest.password)
     return if (user != null) {
-      ResponseEntity.ok(user)
+      val token = jwtUtil.generateToken(user.username)
+      ResponseEntity.ok(token)
     } else {
       ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
     }
