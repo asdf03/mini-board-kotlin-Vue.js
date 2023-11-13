@@ -23,12 +23,17 @@ class CommentController(private val commentService: CommentService) {
 
   @PutMapping("/{id}")
   fun updateComment(@PathVariable id: Long, @RequestBody comment: Comment): ResponseEntity<Comment> {
-    val updateComment = commentRepository.updateComment(id, comment)
+    val updatedCommentOptional = commentService.updateComment(id, comment)
+    return if (updatedCommentOptional.isPresent) {
+      ResponseEntity.ok(updatedCommentOptional.get())
+    } else {
+      ResponseEntity.notFound().build()
+    }
   }
 
   @DeleteMapping("/{id}")
   fun deleteComment(@PathVariable id: Long): ResponseEntity<Void> {
     commentService.deleteComment(id)
-    return ResponseEntity.noContent.build()
+    return ResponseEntity.noContent().build()
   }
 }

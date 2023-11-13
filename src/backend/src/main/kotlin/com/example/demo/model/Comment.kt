@@ -1,7 +1,9 @@
 package com.demo.model
 
+import com.demo.model.User
+import com.demo.model.Message
 import java.time.LocalDateTime
-import javax.presistence.*
+import javax.persistence.*
 
 @Entity
 @Table(name = "comments")
@@ -20,6 +22,6 @@ data class Comment(
   val user: User,
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "massage_id", nullable = false)
+  @JoinColumn(name = "message_id", nullable = false)
   val message: Message
 )

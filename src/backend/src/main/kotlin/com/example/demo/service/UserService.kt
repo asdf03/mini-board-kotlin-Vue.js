@@ -8,14 +8,15 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class UserService(
-  private val userRepository: UserRepository
+  private val userRepository: UserRepository,
   private val passwordEncoder: PasswordEncoder
 ) {
 
   @Transactional
   fun createUser(user: User): User {
-    user.password = passwordEncoder.encode(user.password)
-    return userRepository.save(user)
+    val encodedPassword = passwordEncoder.encode(user.password)
+    val newUser = user.copy(password = encodedPassword)
+    return userRepository.save(newUser)
   }
 
   fun findAllUsers(): List<User> {
@@ -32,7 +33,7 @@ class UserService(
       val updated = existingUser.copy(
         username = updatedUser.username,
         email = updatedUser.email,
-        password = passwordEncoder.encode
+        password = passwordEncoder.encode(updatedUser.password)
       )
       userRepository.save(updated)
     }.orElse(null)

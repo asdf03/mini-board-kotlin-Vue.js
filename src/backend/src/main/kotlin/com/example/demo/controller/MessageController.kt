@@ -12,7 +12,7 @@ class MessageController(private val messageService: MessageService) {
   @GetMapping
   fun listMessages(): ResponseEntity<List<Message>> {
     val messages = messageService.findAllMessages()
-    return ResponseEntity.ok(message)
+    return ResponseEntity.ok(messages)
   }
 
   @GetMapping("/{id}")

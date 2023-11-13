@@ -6,6 +6,7 @@ import com.demo.controller.dto.LoginRequest
 import com.demo.security.JwtUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.http.HttpStatus
 
 @RestController
 @RequestMapping("/users")
@@ -33,9 +34,14 @@ class UserController(
   }
 
   @PutMapping("/{id}")
-  fun updateUser(@PathVariable id: Long, @RequestBody updatedUser: User): ResponseEntity<User>{
-    val updateUser = userService.findUserById(id, updatedUser)
-    return ResponseEntity.ok(user)
+  fun updateUser(@PathVariable id: Long, @RequestBody updatedUserDetails: User): ResponseEntity<User> {
+    val existingUser = userService.findUserById(id)
+    return if (existingUser != null) {
+      val updatedUser = userService.updateUser(id, updatedUserDetails)
+      ResponseEntity.ok(updatedUser)
+    } else {
+      ResponseEntity.notFound().build()
+    }
   }
 
   @DeleteMapping("/{id}")

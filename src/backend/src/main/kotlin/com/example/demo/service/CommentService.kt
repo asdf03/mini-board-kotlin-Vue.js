@@ -4,12 +4,13 @@ import com.demo.model.Comment
 import com.demo.repository.CommentRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.Optional
 
 @Service
 class CommentService(private val commentRepository: CommentRepository) {
   
   @Transactional
-  fun saveComment(comment: Comment): Comment {
+  fun createComment(comment: Comment): Comment {
     return commentRepository.save(comment)
   }
 
@@ -31,9 +32,9 @@ class CommentService(private val commentRepository: CommentRepository) {
 
   @Transactional
   fun updateComment(id: Long, updatedComment: Comment): Optional<Comment> {
-    return CommentRepository.findById(id).map { existingComment -> 
+    return commentRepository.findById(id).map { existingComment -> 
       val updated = existingComment.copy(
-        text = updateComment.text
+        content = updatedComment.content
       )
       commentRepository.save(updated)
     }

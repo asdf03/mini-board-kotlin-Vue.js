@@ -1,7 +1,7 @@
 package com.demo.model
 
 import java.time.LocalDateTime
-import javax.presistence.*
+import javax.persistence.*
 
 @Entity
 @Table(name = "messages")
@@ -17,8 +17,8 @@ data class Message(
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id", nullable = false)
-  val user: User
+  val user: User,
 
-  @OneToMany(mappedBy = "message", cascade = [CascadeType.All], fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "message", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
   val comments: List<Comment> = mutableListOf()
 )

@@ -24,6 +24,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.hibernate:hibernate-entitymanager:5.4.21.Final")
+	implementation("org.springframework.data:spring-data-jpa")
 	implementation("io.jsonwebtoken:jjwt:0.9.1")
 	runtimeOnly("org.postgresql:postgresql")
 	implementation("org.springframework.boot:spring-boot-starter-mail")

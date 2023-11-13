@@ -1,12 +1,12 @@
 package com.demo.config
 
-import org.springframework.context.annotation.Been
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.security.password.PasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
-class securityConfig {
+class SecurityConfig {
 
   @Bean
   fun PasswordEncoder(): PasswordEncoder {
